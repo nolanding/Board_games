@@ -6,13 +6,8 @@ from functools import partial
 MARGIN = 20  # Pixels around the board
 SIDE = 50  # Width of every board cell.
 WIDTH = HEIGHT = MARGIN * 2 + SIDE * 10  # Width and height of the whole board
-# global a
-# a=1
-# global b
-# b=1
-# turn=1
-a=1
-b=1
+a=1 #for player 1
+b=1 #for player 2
 turn=0
 def make_grid(root,canvas):
 	for i in range(11):
@@ -136,7 +131,7 @@ def play_game(root):
 		draw_victory(root,canvas,"orange")
 		print("winner is a")
 	elif(flag==2):
-		draw_victory(root,canvas,"pink")
+		draw_victory(root,canvas,"gray")
 		print("winner is b")
 	turn^=1		
 
@@ -163,19 +158,13 @@ for i in range(10):
 ladder={2:38,4:14,9:31,33:85,52:88,80:99} #using dictionary to create a ladder (start point to end point)
 snake={56:15,62:57,92:53,51:11,98:8} # use dictionary to create a snake (start point end point(start point shoud be high for snake))
 make_grid(root,canvas)
-draw_board(root,canvas,board)
-create_ladder(root, canvas,ladder)
-draw_snake(root,canvas,snake)
-# a=1
-# b=1
+draw_board(root,canvas,board) #fn to make board for snake and ladder
+create_ladder(root, canvas,ladder) #function to make ladder
+draw_snake(root,canvas,snake) # fn to make snakes
 player1=partial(play_game,root)
 button1=Button(root, text="Roll the dice!",command=player1) # this is not necessary but have added this to make player aware that it is their turn.
 button1.pack()
-# player2=partial(play_game,root,1)
-# button2=Button(root, text="player 2's turn",command=player2)	# this is not necessary but have added this to make player aware that it is their turn.
-# button2.pack()
-
-QUIT= Button(root,text="QUIT",fg="red", command=root.destroy)
+QUIT= Button(root,text="Don't want to play? Click Game",fg="red", command=root.destroy) # when user wants to end the game.
 QUIT.pack()
 root.mainloop() 
 
