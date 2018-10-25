@@ -14,7 +14,7 @@ b=1 #for player 2
 counta=0
 countb=0
 turn=0
-def make_grid(root,canvas):
+def make_grid(root,canvas): #fn to make 10*10 grid
 	for i in range(11):
 		color = "black"
 		x0 = MARGIN + i * SIDE
@@ -30,7 +30,7 @@ def make_grid(root,canvas):
 		# print(x0," ",y0," ",x1," ",y1)
 		canvas.create_line(x0, y0, x1, y1, fill=color)
 
-def draw_board(root, canvas,board):
+def draw_board(root, canvas,board): #function to add values 1 to 100 in grid
 	canvas.delete("numbers")
 	for i in range(10):
 		for j in range(10):
@@ -46,7 +46,7 @@ def draw_board(root, canvas,board):
 				x,y,text=answer ,tags="numbers" , fill=color
 				)
 
-def create_ladder(root,canvas,ladder):
+def create_ladder(root,canvas,ladder): #function to add ladder on the board "yellow lines represent ladder"
 	color="yellow"
 	for key, value in ladder.items():
 		r=(100-key)//10
@@ -65,7 +65,7 @@ def create_ladder(root,canvas,ladder):
 
 		canvas.create_line(y1, x1, y0, x0 ,fill=color,width="10")
 
-def draw_snake(root,canvas,snake):
+def draw_snake(root,canvas,snake): #function to add snakes on the board "green lines represent board" 
 	color="green"
 	for key, value in snake.items():
 		r=(100-key)//10
@@ -84,7 +84,7 @@ def draw_snake(root,canvas,snake):
 
 		canvas.create_line(y1, x1, y0, x0 ,fill=color,width="10", dash=(6,5, 2,4))
 
-def draw_victory(root,canvas,color):
+def draw_victory(root,canvas,color): #Function to show if someplayer wins. 
         # create a oval (which will be a circle)
         x0 = y0 = MARGIN + SIDE * 2
         x1 = y1 = MARGIN + SIDE * 7
@@ -127,7 +127,7 @@ def move_the_pointer(a,turn,canvas):
 	if turn==1:
 		positionb(a,canvas,"magenta")   
 
-def play_game(root,ladder,snake):
+def play_game(root,ladder,snake): #game funnction which performs all the calculations.
 	#starts at player 1 and doing xor afer each iteration.
 	global a
 	global b
