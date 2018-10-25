@@ -122,10 +122,10 @@ def positionb(key,canvas,color):
        canvas.create_arc(y0,x0,y1,x1,fill=color) #magenta shows player 2
 
 def move_the_pointer(a,turn,canvas):
-       if turn==0:
-               positiona(a,canvas,"cyan")
-       if turn==1:
-               positionb(a,canvas,"magenta")   
+	if turn==0:
+		positiona(a,canvas,"cyan")
+	if turn==1:
+		positionb(a,canvas,"magenta")   
 
 def play_game(root,ladder,snake):
 	#starts at player 1 and doing xor afer each iteration.
